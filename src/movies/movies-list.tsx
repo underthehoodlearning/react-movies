@@ -1,5 +1,5 @@
 import IndividualMovies from "./individual-movie";
-import { movieDTO } from "./movies.model";
+import { MovieDTO } from "./movies.model";
 import css from './movie-list.module.css';
 
 export default function MoviesList(props: MovieListProps) {
@@ -12,5 +12,5 @@ export default function MoviesList(props: MovieListProps) {
 }
 
 interface MovieListProps {
-    movies: movieDTO[];
+    movies: MovieDTO[];
 }

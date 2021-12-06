@@ -1,13 +1,13 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { movieDTO } from './movies/movies.model';
+import { MovieDTO } from './movies/movies.model';
 import IndividualMovies from './movies/individual-movie';
 import MoviesList from './movies/movies-list';
 
 function App() {
 
-  const inTheaters: movieDTO[] = [
+  const inTheaters: MovieDTO[] = [
     {
     id: 1,
     title: 'Spider-Man: Far From Home',
@@ -20,7 +20,7 @@ function App() {
     }
   ]
 
-  const upcomingReleases: movieDTO[] = [
+  const upcomingReleases: MovieDTO[] = [
     {
       id: 3,
       title: 'Soul',
