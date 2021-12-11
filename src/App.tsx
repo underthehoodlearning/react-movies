@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { LandingPageDTO, MovieDTO } from './movies/movies.model';
-import IndividualMovies from './movies/individual-movie';
+import IndividualMovie from './movies/individual-movie';
 import MovieList from './movies/movie-list';
 
 function App() {

@@ -1,7 +1,7 @@
 import { MovieDTO } from "./movies.model";
 import css from './individual-movie.module.css';
 
-export default function IndividualMovies(props: MovieDTO) {
+export default function IndividualMovie(props: MovieDTO) {
     const buildLink = () => `/movie/${props.poster}`
 
     return (
