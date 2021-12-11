@@ -1,40 +1,49 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { MovieDTO } from './movies/movies.model';
+import { LandingPageDTO, MovieDTO } from './movies/movies.model';
 import IndividualMovies from './movies/individual-movie';
-import MoviesList from './movies/movies-list';
+import MovieList from './movies/movie-list';
 
 function App() {
 
-  const inTheaters: MovieDTO[] = [
-    {
-    id: 1,
-    title: 'Spider-Man: Far From Home',
-    poster: 'https://upload.wikimedia.org/wikipedia/en/b/bd/Spider-Man_Far_From_Home_poster.jpg'
-  },
-    {
-      id: 2,
-      title: 'Luca',
-      poster: 'https://i0.wp.com/www.hd.com.do/wp-content/uploads/2021/04/1619620464_LUCA-Disney.png?fit=525%2C750&ssl=1'
-    }
-  ]
+  const [movies, setMovies] = useState<LandingPageDTO>({});
 
-  const upcomingReleases: MovieDTO[] = [
-    {
-      id: 3,
-      title: 'Soul',
-      poster: 'https://i.pinimg.com/originals/9d/6a/04/9d6a0489776b1abde5f7f1b474a8b6c4.png'
-    }
-  ]
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      setMovies({
+        inTheaters: [
+          {
+          id: 1,
+          title: 'Spider-Man: Far From Home',
+          poster: 'https://upload.wikimedia.org/wikipedia/en/b/bd/Spider-Man_Far_From_Home_poster.jpg'
+        },
+        {
+          id: 2,
+          title: 'Luca',
+          poster: 'https://i0.wp.com/www.hd.com.do/wp-content/uploads/2021/04/1619620464_LUCA-Disney.png?fit=525%2C750&ssl=1'
+        }
+      ],
+      upcomingReleases: [
+        {
+          id: 3,
+          title: 'Soul',
+          poster: 'https://i.pinimg.com/originals/9d/6a/04/9d6a0489776b1abde5f7f1b474a8b6c4.png'
+        }
+      ]
+      })
+    }, 1000);
+
+    return () => clearTimeout(timerId);
+  });
 
   return (
     <div className="container">
       <h3>In Theaters</h3>
-      <MoviesList movies={inTheaters} />
+      <MovieList movies={movies.inTheaters} />
 
       <h3>Upcoming Releases</h3>
-      <MoviesList movies={upcomingReleases} />
+      <MovieList movies={movies.upcomingReleases} />
     </div>
   );
 }
