@@ -4,6 +4,9 @@ import './App.css';
 import { LandingPageDTO, MovieDTO } from './movies/movies.model';
 import IndividualMovie from './movies/individual-movie';
 import MovieList from './movies/movie-list';
+import Menu from './Menu';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Genres from './genres/genres';
 
 function App() {
 
@@ -38,13 +41,24 @@ function App() {
   });
 
   return (
-    <div className="container">
-      <h3>In Theaters</h3>
-      <MovieList movies={movies.inTheaters} />
+    <BrowserRouter>
+      <Menu />
+      <div className="container">
+        <Switch>
+          <Route exact path="/">
+            <h3>In Theaters</h3>
+            <MovieList movies={movies.inTheaters} />
 
-      <h3>Upcoming Releases</h3>
-      <MovieList movies={movies.upcomingReleases} />
-    </div>
+            <h3>Upcoming Releases</h3>
+            <MovieList movies={movies.upcomingReleases} />
+          </Route>
+
+          <Route path="/genres">
+            <Genres />
+          </Route>
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
