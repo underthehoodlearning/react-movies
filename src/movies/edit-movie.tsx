@@ -1,3 +1,4 @@
+import { actorMovieDTO } from "../actors/actors.model";
 import { GenreDTO } from "../genres/genres.model";
 import { movieTheaterDTO } from "../movie-theaters/movieTheater.model";
 import MovieForm from "./MovieForm";
@@ -12,6 +13,10 @@ export default function EditMovie(){
     const selectedMovieTheaters: movieTheaterDTO[] = 
     [{id: 1, name: 'Sambil'}]
 
+    const selectedActors: actorMovieDTO[] = [{
+        id: 1, name: 'Felipe', character: 'Geralt', picture: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Tom_Holland_by_Gage_Skidmore.jpg/220px-Tom_Holland_by_Gage_Skidmore.jpg'
+    }]
+
     return (
         <>
             <h3>Edit Movie</h3>
@@ -24,6 +29,7 @@ export default function EditMovie(){
 
                 nonSelectedMovieTheaters={nonSelectedMovieTheaters}
                 selectedMovieTheaters={selectedMovieTheaters}
+                selectedActors={selectedActors}
             />
         </>
     )
