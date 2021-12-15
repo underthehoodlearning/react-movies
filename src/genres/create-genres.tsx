@@ -13,7 +13,8 @@ export default function CreateGenre(){
                 initialValues={{
                     name: ''
                 }}
-                onSubmit={ value => {
+                onSubmit={ async value => {
+                    await new Promise(r => setTimeout(r, 3000));
                     console.log(value);
                 }}
                 validationSchema={
@@ -22,12 +23,15 @@ export default function CreateGenre(){
                     })
                 }
             >
-                <Form>
-                    <TextField field="name" displayName="Name"></TextField>
+                {(formikProps) => (
+                    <Form>
+                        <TextField field="name" displayName="Name" />
 
-                    <Button type="submit">Save Changes</Button>
-                    <Link className="btn btn-secondary" to="/genres">Cancel</Link>
-                </Form>
+                        <Button disabled={formikProps.isSubmitting} type='submit'>Save Changes</Button>
+                        <Link className="btn btn-secondary" to="/genres">Cancel</Link>
+
+                    </Form>
+                )}
             </Formik>
         </>
     )
